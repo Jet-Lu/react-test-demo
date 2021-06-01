@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="libs/react.development.js"></script>
+  <script src="libs/react-dom.development.js"></script>
+  <script src="libs/babel.js"></script>
+  <script type="text/babel">
+    // 与运算符 &&
+    function Mailbox(props) {
+      const us = props.usm;
+      return (
+        <div>
+          <h1>hello</h1>    
+          {
+            us.length > 0 &&
+            <h2>
+              you have {us.length} user message
+            </h2>
+          }
+        </div>
+      )
+    }
+    const mess = ['re: ee', 'ab: ab']
+    ReactDOM.render(<Mailbox usm={mess} />, document.getElementById('root'))
+  </script>
+</body>
+</html>

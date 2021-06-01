@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>react</title>
+</head>
+<body>
+  
+  <div id="app">ddd</div>
+
+  <script src="./libs/react.development.js"></script>
+  <script src="./libs/react-dom.development.js"></script>
+  <script src="./libs/babel.js"></script>
+  <script type="text/babel">
+    var app = document.querySelector('#app');
+    
+    // 1.创建组件
+    class Weather extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {second: 0 };
+        this.changeState = this.changeState.bind(this);
+      }
+
+      tick() {
+        this.setState(state => ({
+          second: state.second + 1
+        }))
+      }
+
+      componentDidMount() {
+        this.interval = setTimeout(() => this.tick(), 1000);
+      }
+
+      componentWillUnmount() {
+        clearTimeout(this.interval);
+      }
+
+      render() {
+        console.log(this, this.props, this.state)
+        return (
+          <div>
+            <h1 onClick={() => this.changeState}>今天{this.props.name} {this.state.second}</h1>
+          </div>
+        )
+      }
+      changeState(state) {
+        console.log(this, state)
+        // this.props.name = state;
+      }
+    }
+
+    ReactDOM.render(<Weather name="凉快" />, app);
+  </script>
+
+</body>
+</html>

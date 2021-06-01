@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hello world</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="libs/react.development.js"></script>
+  <script src="libs/react-dom.development.js"></script>
+  <script src="libs/babel.js"></script>
+  <script type="text/babel">
+    const name = 'Jet';
+    const element = <h2>hello {name}</h2>
+    ReactDOM.render(
+      element, document.querySelector('#root')
+    )
+  </script>
+</body>
+</html>
