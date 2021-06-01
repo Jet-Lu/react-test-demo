@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  
+  <script src="libs/react.development.js"></script>
+  <script src="libs/react-dom.development.js"></script>
+  <script src="libs/babel.js"></script>
+  <script type="text/babel">
+    class Hot extends React.Component {
+      state = {isHot: false, wind: '微风'};
+      render() {
+        const { isHot } = this.state.isHot;
+        return <h1 onClick={this.changeType}>今天是 {this.state.isHot ? '热': 'cook'}, 风速{this.state.wind}</h1>
+      }
+      changeType = () => {
+        const { isHot } = this.state.isHot;
+        this.setState({
+          isHot: !this.state.isHot
+        })
+      }
+    }
+    ReactDOM.render(<Hot />, document.getElementById('app'))
+  </script>
+</body>
+</html>
