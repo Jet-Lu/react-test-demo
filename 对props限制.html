@@ -9,6 +9,7 @@
 <body>
   <div id="app"></div>
   
+  
   <script src="libs/react.development.js"></script>
   <script src="libs/react-dom.development.js"></script>
   <script src="libs/babel.js"></script>
@@ -17,7 +18,7 @@
   <script type="text/babel">
     class Person extends React.Component {
       // 对标签属性进行类型、必要性限制，指定默认标签属性值 使用static关键字
-      
+
       static default = {}
       render() {
         const {name, age, sex} = this.props;
