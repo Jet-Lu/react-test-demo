@@ -13,18 +13,45 @@
   <script src="./libs/react-dom.development.js"></script>
   <script src="./libs/babel.js"></script>
   <script type="text/babel">
+    // 受控组件
     class Form extends React.Component {
-
+      login = () => {
+        const xhr = new XMLHttpRequest();
+        console.log(xhr)
+        // xhr.open();
+        // xhr.onreadystatechange = () => {
+        //   console.log('xhr', xhr)
+        // }
+        // xhr.send()
+      }
+      changeVal = (type) => {
+        return event => {
+          console.log('e', type, event)
+        }
+      }
       render() {
         return (
-          <form action="http://www.atguigu.com" >
-            用户名： <input type="text" />
-            密码： <input type="text" />
-            <button>登录</button>
-          </form>
+          <div>
+            <input type="text" onChange={this.changeVal('username')} name="username" />  
+            <input type="password" onChange={this.changeVal('pwd')} name="pwd" />
+            <button onClick={this.login}>login</button>
+          </div>
         )
       }
     }
+
+    // 非受控组件
+    // class Form extends React.Component {
+    //   render() {
+    //     return (
+    //       <form action="http://www.atguigu.com" >
+    //         用户名： <input type="text" name="username" />
+    //         密码： <input type="text" name="pwd" />
+    //         <button>登录</button>
+    //       </form>
+    //     )
+    //   }
+    // }
     ReactDOM.render(<Form />, document.getElementById('app'))
   </script>
 </body> 
