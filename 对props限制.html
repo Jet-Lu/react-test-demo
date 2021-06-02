@@ -17,6 +17,7 @@
   <script type="text/babel">
     class Person extends React.Component {
       // 对标签属性进行类型、必要性限制，指定默认标签属性值 使用static关键字
+      
       static default = {}
       render() {
         const {name, age, sex} = this.props;
@@ -24,7 +25,7 @@
           <ul>
             <li>name: {name}</li>
             <li>age: {age}</li>
-            <li>sex: {sex}</li>  
+            <li>sex: {sex}</li>
           </ul>
         )
       }
