@@ -21,16 +21,17 @@
         const {input1} = this;
         console.log('input1', input1.value)
       }
-      showData2 = () => {
-        const {input2} = this;
-        console.log('input2', input2.value)
+      showData2 = (event) => {
+        console.log('e-', event.target)
+        // const {input2} = this;
+        // console.log('input2', input2.value)
       }
       render() {
         return (
           <div>
             <input type="text" ref={c => this.input1 = c} /><br />
             <button onClick={this.showData}>click</button><br />
-            <input type="text" onBlur={this.showData2} ref={c => this.input2 = c} />
+            <input type="text" onBlur={this.showData2} />
           </div>
         )
       }
